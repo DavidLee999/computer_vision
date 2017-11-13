@@ -128,4 +128,4 @@ void imshow_250x250(const string& name_, const Mat& patch)
     Mat bigPatch;
     cv::resize(patch, bigPatch, Size (250, 250));
     imshow(name_, bigPatch);
-}
+}ß
