@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		895D4C4D1FC0674C00E1C5A6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 895D4C4C1FC0674C00E1C5A6 /* main.cpp */; };
+		89BA02201FC06904009E3E6B /* shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89BA021E1FC06904009E3E6B /* shape_model.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		895D4C471FC0674C00E1C5A6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		895D4C491FC0674C00E1C5A6 /* face_tracking */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = face_tracking; sourceTree = BUILT_PRODUCTS_DIR; };
+		895D4C4C1FC0674C00E1C5A6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		89BA021E1FC06904009E3E6B /* shape_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shape_model.cpp; sourceTree = "<group>"; };
+		89BA021F1FC06904009E3E6B /* shape_model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shape_model.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		895D4C461FC0674C00E1C5A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		895D4C401FC0674C00E1C5A6 = {
+			isa = PBXGroup;
+			children = (
+				895D4C4B1FC0674C00E1C5A6 /* face_tracking */,
+				895D4C4A1FC0674C00E1C5A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		895D4C4A1FC0674C00E1C5A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				895D4C491FC0674C00E1C5A6 /* face_tracking */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		895D4C4B1FC0674C00E1C5A6 /* face_tracking */ = {
+			isa = PBXGroup;
+			children = (
+				895D4C4C1FC0674C00E1C5A6 /* main.cpp */,
+				89BA021E1FC06904009E3E6B /* shape_model.cpp */,
+				89BA021F1FC06904009E3E6B /* shape_model.hpp */,
+			);
+			path = face_tracking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		895D4C481FC0674C00E1C5A6 /* face_tracking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 895D4C501FC0674C00E1C5A6 /* Build configuration list for PBXNativeTarget "face_tracking" */;
+			buildPhases = (
+				895D4C451FC0674C00E1C5A6 /* Sources */,
+				895D4C461FC0674C00E1C5A6 /* Frameworks */,
+				895D4C471FC0674C00E1C5A6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = face_tracking;
+			productName = face_tracking;
+			productReference = 895D4C491FC0674C00E1C5A6 /* face_tracking */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		895D4C411FC0674C00E1C5A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "李芃桦";
+				TargetAttributes = {
+					895D4C481FC0674C00E1C5A6 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 895D4C441FC0674C00E1C5A6 /* Build configuration list for PBXProject "face_tracking" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 895D4C401FC0674C00E1C5A6;
+			productRefGroup = 895D4C4A1FC0674C00E1C5A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				895D4C481FC0674C00E1C5A6 /* face_tracking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		895D4C451FC0674C00E1C5A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				895D4C4D1FC0674C00E1C5A6 /* main.cpp in Sources */,
+				89BA02201FC06904009E3E6B /* shape_model.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		895D4C4E1FC0674C00E1C5A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_aruco.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_bgsegm.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_bioinspired.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_calib3d.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_ccalib.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_core.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_datasets.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_dnn.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_dpm.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_face.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_features2d.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_flann.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_fuzzy.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_hdf.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_highgui.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_imgcodecs.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_imgproc.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_line_descriptor.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_ml.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_objdetect.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_optflow.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_phase_unwrapping.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_photo.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_plot.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_reg.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_rgbd.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_saliency.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_shape.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_stereo.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_stitching.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_structured_light.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_superres.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_surface_matching.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_text.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_tracking.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_video.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_videoio.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_videostab.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_xfeatures2d.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_ximgproc.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_xobjdetect.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_xphoto.3.2.0.dylib\"",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		895D4C4F1FC0674C00E1C5A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_aruco.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_bgsegm.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_bioinspired.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_calib3d.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_ccalib.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_core.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_datasets.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_dnn.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_dpm.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_face.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_features2d.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_flann.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_fuzzy.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_hdf.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_highgui.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_imgcodecs.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_imgproc.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_line_descriptor.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_ml.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_objdetect.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_optflow.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_phase_unwrapping.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_photo.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_plot.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_reg.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_rgbd.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_saliency.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_shape.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_stereo.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_stitching.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_structured_light.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_superres.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_surface_matching.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_text.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_tracking.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_video.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_videoio.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_videostab.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_xfeatures2d.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_ximgproc.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_xobjdetect.3.2.0.dylib\"",
+					"\"$(SRCROOT)/../../../Downloads/opencv-3.2.0/build/lib/libopencv_xphoto.3.2.0.dylib\"",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		895D4C511FC0674C00E1C5A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		895D4C521FC0674C00E1C5A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		895D4C441FC0674C00E1C5A6 /* Build configuration list for PBXProject "face_tracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				895D4C4E1FC0674C00E1C5A6 /* Debug */,
+				895D4C4F1FC0674C00E1C5A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		895D4C501FC0674C00E1C5A6 /* Build configuration list for PBXNativeTarget "face_tracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				895D4C511FC0674C00E1C5A6 /* Debug */,
+				895D4C521FC0674C00E1C5A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 895D4C411FC0674C00E1C5A6 /* Project object */;
+}
