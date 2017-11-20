@@ -206,7 +206,7 @@ Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
     {
         Mat p = P.col(i);
         float mx = 0, my = 0;
-        for (int j = 0; j < n; ++j)
+        for (int j = 0; j < n; ++j) // compute centre of mass
         {
             mx += p.fl(2 * j);
             my += p.fl(2 * j + 1);
@@ -215,7 +215,7 @@ Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
         mx /= n;
         my /= n;
         
-        for (int j = 0; j < n; ++j)
+        for (int j = 0; j < n; ++j) // remove center of mass
         {
             p.fl(2 * j) -= mx;
             p.fl(2 * j) -= my;
@@ -226,9 +226,9 @@ Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
     Mat C_old;
     for (int iter = 0; iter < itol; ++iter)
     {
-        Mat C = P * Mat::ones(N, 1, CV_32F) / N;
+        Mat C = P * Mat::ones(N, 1, CV_32F) / N; // compute normalized canonical shape
         normalize(C, C);
-        if (iter > 0)
+        if (iter > 0) // converged
         {
             if (norm(C, C_old) < ftol)
                 break;
@@ -239,7 +239,7 @@ Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
         for (int i = 0; i < N; ++i)
         {
             Mat R = this->rot_scale_align(P.col(i), C);
-            for (int j = 0; j < n; ++j)
+            for (int j = 0; j < n; ++j) // apply similarity transformation
             {
                 float x = P.fl(2 * j, i), y = P.fl(2 * j + 1, i);
                 P.fl(2 * j, i) = R.fl(0, 0) * x + R.fl(0, 1) * y;
