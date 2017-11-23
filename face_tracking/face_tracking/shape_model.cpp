@@ -18,10 +18,10 @@ void shape_model::calc_params(const vector<Point2f> &pts, const Mat weight, cons
     int n = pts.size();
     assert(V.rows == 2 * n);
     
-    Mat s = Mat(pts).reshape(1, 2 * n);
+    Mat s = Mat(pts).reshape(1, 2 * n); // face shape
     
     if (weight.empty())
-        p = V.t() * s;
+        p = V.t() * s; // coord. in the face subspace
     else
     {
         if (weight.rows != n)
@@ -102,16 +102,16 @@ void shape_model::train(const vector<vector<Point2f> > &points, const vector<Vec
     // compute non-rigid trans
     Mat P = R.t() * Y;
     Mat dY = Y - R * P;
-    SVD svd(dY * dY.t());
+    SVD svd(dY * dY.t()); // SVD decomposition
     
     int m  = min(min(kmax, N - 1), n - 1);
     float vsum = 0;
-    for (int i = 0; i < m; ++i)
+    for (int i = 0; i < m; ++i) // sum over eigen values
         vsum += svd.w.fl(i);
     
     float v = 0;
     int k = 0;
-    for (k = 0; k < m; ++k)
+    for (k = 0; k < m; ++k)// chose the first m eigen values
     {
         v += svd.w.fl(k);
         if (v / vsum >= frac)
@@ -126,16 +126,16 @@ void shape_model::train(const vector<vector<Point2f> > &points, const vector<Vec
     
     Mat D = svd.u(Rect(0, 0, k, 2 * n));
     
-    // combine basis
+    // combine local and global basis
     V.create(2 * n, 4 + k, CV_32F);
     Mat Vr = V(Rect(0, 0, 4, 2 * n));
-    R.copyTo(Vr);
+    R.copyTo(Vr); // rigid transformation
     Mat Vd = V(Rect(4, 0, k, 2 * n));
-    D.copyTo(Vd);
+    D.copyTo(Vd); // non-rigid transformation
     
     // compute variance
-    Mat Q = V.t() * X;
-    for (int i = 0; i < N; ++i)
+    Mat Q = V.t() * X; // project raw data onto sub-space
+    for (int i = 0; i < N; ++i) // normalize coords. w.r.t. scale
     {
         float v = Q.fl(0, i);
         Mat q = Q.col(i);
@@ -146,9 +146,9 @@ void shape_model::train(const vector<vector<Point2f> > &points, const vector<Vec
     pow(Q, 2, Q);
     for (int i = 0; i < 4 + k; ++i)
     {
-        if (i < 4)
+        if (i < 4) // rigid space
             e.fl(i) = -1;
-        else
+        else // non-rigid space
             e.fl(i) = Q.row(i).dot(Mat::ones(1, N, CV_32F)) / (N - 1);
     }
     
@@ -196,15 +196,15 @@ Mat shape_model::pts2mat(const vector<vector<Point2f> > &points)
     return X;
 }
 
-Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
+Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol) // align each shape (columns of X to canonical shape
 {
     int N = X.cols, n = X.rows / 2;
     
     // remove centre of mass
-    Mat P = X.clone();
+    Mat P = X.clone(); // copy
     for (int i = 0; i < N; ++i)
     {
-        Mat p = P.col(i);
+        Mat p = P.col(i); // i-th shape
         float mx = 0, my = 0;
         for (int j = 0; j < n; ++j) // compute centre of mass
         {
@@ -227,7 +227,7 @@ Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
     for (int iter = 0; iter < itol; ++iter)
     {
         Mat C = P * Mat::ones(N, 1, CV_32F) / N; // compute normalized canonical shape
-        normalize(C, C);
+        normalize(C, C); // canonical shape, normalized average of all shapes
         if (iter > 0) // converged
         {
             if (norm(C, C_old) < ftol)
@@ -251,7 +251,7 @@ Mat shape_model::procrustes(const Mat& X, const int itol, const float ftol)
     return P;
 }
 
-Mat shape_model::rot_scale_align(const cv::Mat &src, const cv::Mat &dst)
+Mat shape_model::rot_scale_align(const cv::Mat &src, const cv::Mat &dst) // scaled rotation matrix
 {
     // construct linear system
     int n = src.rows / 2;

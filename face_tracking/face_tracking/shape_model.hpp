@@ -15,19 +15,19 @@ using namespace cv;
 #include <vector>
 using namespace std;
 
-class shape_model{
+class shape_model{ // 2D linear shape model
 public:
-    Mat p; // parameter vector (k x 1)
-    Mat V; // shape basis (2n x k)
+    Mat p; // parameter vector (k x 1), describe shape w.r.t. model
+    Mat V; // shape basis (2n x k), describes model with e
     Mat e; // parameter variance (k x 1)
     Mat C; // connectivity (c x 2)
     
     int npts()
     { return V.rows / 2; }
     
-    void calc_params(const vector<Point2f>& pts, const Mat weight = Mat(), const float c_factor = 3.0);
+    void calc_params(const vector<Point2f>& pts, const Mat weight = Mat(), const float c_factor = 3.0); // from points to compute parameters
     
-    vector<Point2f> calc_shape(); // shape described by p
+    vector<Point2f> calc_shape(); // from paramters to compute shape
     
     void set_identity_params();
     
