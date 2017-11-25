@@ -94,8 +94,32 @@ int main(int argc, char** argv)
     
     float frac = parse_frac(argc, argv);
     int kmax = parse_kmax(argc, argv);
-    bool mirror = parse_mirror(argc, argc);
+    bool mirror = parse_mirror(argc, argv);
     
     ft_data  data = load_ft<ft_data>(argv[1]);
+    if (data.imnames.size() == 0)
+    {
+        cerr << "Data file does not contain any anotations." << endl;
+        return 0;
+    }
+    
+    // remove unlabeled samples and get reflections as well
+    data.rm_incomplete_samples();
+    vector<vector<Point2f> > points;
+    for (int i = 0; i < int(data.points.size()); ++i)
+    {
+        points.push_back(data.get_points(i, false));
+        if (mirror)
+            points.push_back(data.get_points(i, true));
+    }
+    
+    // train model and save file
+    cout << "shape model training samples: " << points.size() << endl;
+    shape_model smodel;
+    smodel.train(points, data.connections, frac, kmax);
+    cout << "retained: " << smodel.V.cols - 4 << " modes" << endl;
+    save_ft(argv[2], smodel);
+    
+    return 0;
     
 }

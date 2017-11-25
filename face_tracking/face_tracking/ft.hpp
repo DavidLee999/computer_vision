@@ -10,6 +10,7 @@
 #define ft_h
 
 #include "shape_model.hpp"
+#include "ft_data.hpp"
 
 template <typename T>
 T load_ft(const char* fname) {

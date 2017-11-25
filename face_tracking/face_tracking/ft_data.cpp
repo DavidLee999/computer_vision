@@ -345,5 +345,3 @@ void ft_data::read(const FileNode& node)
         }
     }
 }
-        
-}

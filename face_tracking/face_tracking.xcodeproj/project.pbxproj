@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		89BA02201FC06904009E3E6B /* shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89BA021E1FC06904009E3E6B /* shape_model.cpp */; };
+		89CEEB5A1FC9876900FD75DB /* visualize_shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CEEB591FC9876900FD75DB /* visualize_shape_model.cpp */; };
+		89CEEB5C1FC99C7900FD75DB /* annotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CEEB5B1FC99C7900FD75DB /* annotate.cpp */; };
 		89E87F5F1FC834F3005315E8 /* train_shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89E87F5E1FC834F3005315E8 /* train_shape_model.cpp */; };
 		89E87F631FC83E7E005315E8 /* ft_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89E87F611FC83E7E005315E8 /* ft_data.cpp */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		895D4C491FC0674C00E1C5A6 /* face_tracking */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = face_tracking; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BA021E1FC06904009E3E6B /* shape_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shape_model.cpp; sourceTree = "<group>"; };
 		89BA021F1FC06904009E3E6B /* shape_model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shape_model.hpp; sourceTree = "<group>"; };
+		89CEEB591FC9876900FD75DB /* visualize_shape_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = visualize_shape_model.cpp; sourceTree = "<group>"; };
+		89CEEB5B1FC99C7900FD75DB /* annotate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = annotate.cpp; sourceTree = "<group>"; };
 		89E87F5E1FC834F3005315E8 /* train_shape_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = train_shape_model.cpp; sourceTree = "<group>"; };
 		89E87F601FC835B3005315E8 /* ft.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ft.hpp; sourceTree = "<group>"; };
 		89E87F611FC83E7E005315E8 /* ft_data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ft_data.cpp; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				89E87F601FC835B3005315E8 /* ft.hpp */,
 				89E87F611FC83E7E005315E8 /* ft_data.cpp */,
 				89E87F621FC83E7E005315E8 /* ft_data.hpp */,
+				89CEEB591FC9876900FD75DB /* visualize_shape_model.cpp */,
+				89CEEB5B1FC99C7900FD75DB /* annotate.cpp */,
 			);
 			path = face_tracking;
 			sourceTree = "<group>";
@@ -133,6 +139,8 @@
 			files = (
 				89E87F631FC83E7E005315E8 /* ft_data.cpp in Sources */,
 				89E87F5F1FC834F3005315E8 /* train_shape_model.cpp in Sources */,
+				89CEEB5A1FC9876900FD75DB /* visualize_shape_model.cpp in Sources */,
+				89CEEB5C1FC99C7900FD75DB /* annotate.cpp in Sources */,
 				89BA02201FC06904009E3E6B /* shape_model.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
