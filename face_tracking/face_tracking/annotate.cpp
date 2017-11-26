@@ -66,7 +66,7 @@ public:
     
     void draw_connections()
     {
-        int m = data.connections.size();
+        int m = static_cast<int>(data.connections.size());
         if (m == 0)
             this->draw_points();
         else
@@ -147,7 +147,7 @@ public:
     
     void initialise_symmetry(const int index)
     {
-        int n = data.points[index].size();
+        int n = static_cast<int>(data.points[index].size());
         data.symmetry.resize(n);
         for (int i = 0; i < n; ++i)
             data.symmetry[i] = i;
@@ -168,7 +168,7 @@ public:
     
     int find_closest_point(const Point2f p, const double thresh = 10.0)
     {
-        int n = data.points[idx].size(), imin = -1;
+        int n = static_cast<int>(data.points[idx].size()), imin = -1;
         double dmin = -1;
         for (int i = 0; i < n; ++i)
         {
@@ -218,7 +218,7 @@ void pc_MouseCallback(int event, int x, int y, int /*flags*/, void* /*param*/)
         int imin = annotation.find_closest_point(Point2f(x, y));
         if (imin >= 0)
         {
-            int m = annotation.data.connections.size();
+            int m = static_cast<int>(annotation.data.connections.size());
             if (m == 0)
                 annotation.data.connections.push_back(Vec2i(imin, -1));
             else
@@ -508,7 +508,7 @@ int main(int argc, char** argv)
                 break;
             else if (c == 's')
             {
-                int idx = annotation.data.imnames.size();
+                int idx = static_cast<int>(annotation.data.imnames.size());
                 char str[1024];
                 
                 if (idx < 10)
