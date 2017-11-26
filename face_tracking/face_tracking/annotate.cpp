@@ -255,3 +255,369 @@ void ps_MouseCallback(int event, int x, int y, int /*flags*/, void* /*param*/)
         }
     }
 }
+
+void mv_MouseCallback(int event, int x, int y, int /*flags*/, void* /*param*/)
+{
+    if (event == CV_EVENT_LBUTTONDOWN)
+    {
+        if (annotation.pidx < 0)
+            annotation.pidx = annotation.find_closest_point(Point2f(x, y));
+        else
+            annotation.pidx = -1;
+        
+        annotation.copy_clean_image();
+        annotation.draw_connections();
+        annotation.draw_chosen_point();
+        imshow(annotation.wname, annotation.image);
+    }
+    else if (event == CV_EVENT_MOUSEMOVE)
+    {
+        if (annotation.pidx >= 0)
+        {
+            annotation.data.points[annotation.idx][annotation.pidx] = Point2f(x, y);
+            annotation.copy_clean_image();
+            annotation.draw_connections();
+            annotation.draw_chosen_point();
+            imshow(annotation.wname, annotation.image);
+        }
+    }
+}
+
+class muct_data {
+public:
+    string name;
+    string index;
+    vector<Point2f> points;
+    
+    muct_data(string str, string muct_dir)
+    {
+        size_t p1 = 0, p2;
+        
+        // set image diectory
+        string idir = muct_dir;
+        if (idir[idir.length() - 1] != '/')
+            idir += "/";
+        
+        idir += "jpg/";
+        
+        // get image name
+        p2 = str.find(",");
+        if (p2 == string::npos)
+        {
+            cerr << "Invalid MUCT file" << endl;
+            exit(0);
+        }
+        name = str.substr(p1, p2 - p1);
+        
+        if (strcmp(name.c_str(), "i434xe-fn") == 0 || name[1] == 'r')
+            name = "";
+        else
+        {
+            name = idir + str.substr(p1, p2 - p1) + ".jpg";
+            p1 = p2 + 1;
+            
+            // get index
+            p2 = str.find(",", p1);
+            if (p2 == string::npos)
+            {
+                cerr << "Invalid MUCT file" << endl;
+                exit(0);
+            }
+            
+            index = str.substr(p1, p2 - p1);
+            p1 = p2 + p1;
+            
+            // get points
+            for (int i = 0; i < 75; ++i)
+            {
+                p2 = str.find(",", p1);
+                if (p2 == string::npos)
+                {
+                    cerr << "Invalid MUCT file" << endl;
+                    exit(0);
+                }
+                string x = str.substr(p1, p2 - p1);
+                
+                p1 = p2 + 1;
+                p2 = str.find(",", p1);
+                if (p2 == string::npos)
+                {
+                    cerr << "Invalid MUCT file" << endl;
+                    exit(0);
+                }
+                string y = str.substr(p1, p2 - p1);
+                p1  = p2 + 1;
+                points.push_back(Point2f(atoi(x.c_str()), atoi(y.c_str())));
+            }
+            p2 = str.find(",", p1);
+            if (p2 == string::npos)
+            {
+                cerr << "Invalid MUCT file" << endl;
+                exit(0);
+            }
+            string x = str.substr(p1, p2 - p1);
+            p1 = p2 + 1;
+            string y = str.substr(p1, str.length() - p1);
+            points.push_back(Point2f(atoi(x.c_str()), atoi(y.c_str())));
+        }
+    }
+};
+
+bool parse_help(int argc, char** argv)
+{
+    for (int i = 1; i < argc; ++i)
+    {
+        string str = argv[i];
+        if (str.length() == 2)
+        {
+            if (strcmp(str.c_str(), "-h") == 0)
+                return true;
+        }
+        if (str.length() == 6)
+        {
+            if (strcmp(str.c_str(), "--help") == 0)
+                return true;
+        }
+    }
+    return false;
+}
+
+string parse_odir(int argc, char** argv)
+{
+    string odir = "data/";
+    for (int i = 0; i < argc; ++i)
+    {
+        string str = argv[i];
+        if (str.length() != 2)
+            continue;
+        if (strcmp(str.c_str(), "-d") == 0)
+        {
+            if (argc > i + 1)
+            {
+                odir = argv[i + 1];
+                break;
+            }
+        }
+    }
+    
+    if (odir[odir.length() - 1] != '/')
+        odir += "/";
+    
+    return odir;
+}
+
+int parse_ifile(int argc, char** argv, string& ifile)
+{
+    for (int i = 1; i < argc; ++i)
+    {
+        string str = argv[i];
+        if (str.length() != 2)
+            continue;
+        if (strcmp(str.c_str(), "-m") == 0)
+        {
+            if (argc > i + 1)
+            {
+                ifile = argv[i + 1];
+                return 2;
+            }
+        }
+        if (strcmp(str.c_str(), "-v") == 0)
+        {
+            if (argc > i + 1)
+            {
+                ifile = argv[i + 1];
+                return 1;
+            }
+        }
+    }
+    ifile = "";
+    return 0;
+}
+
+int main(int argc, char** argv)
+{
+    // parse cmd line options
+    if (parse_help(argc, argv))
+    {
+        cout << "usage: ./annotate [-v video] [-m muct_dir] [-d output_dir]" << endl;
+        return 0;
+    }
+    
+    string odir = parse_odir(argc, argv);
+    string ifile;
+    int type = parse_ifile(argc, argv, ifile);
+    string fname = odir + "annotations.ymal"; // file to save annotation data to
+    
+    // get data
+    namedWindow(annotation.wname);
+    if (type == 2)
+    {
+        string lmfile = ifile + "muct-landmarks/muct76-opencv.csv";
+        ifstream file(lmfile.c_str());
+        if (!file.is_open())
+        {
+            cout << "Fail opening " << lmfile << " for reading" << endl;
+            return 0;
+        }
+        
+        string str;
+        getline(file, str);
+        while (!file.eof()) {
+            getline(file, str);
+            if (str.length() == 0)
+                break;
+            
+            muct_data d(str, ifile);
+            if (d.name.length() == 0)
+                continue;
+            
+            annotation.data.imnames.push_back(d.name);
+            annotation.data.points.push_back(d.points);
+        }
+        
+        file.close();
+        annotation.data.rm_incomplete_samples();
+    }
+    else
+    {
+        // open video stream
+        VideoCapture cam;
+        if (type == 1)
+            cam.open(ifile);
+        else
+            cam.open(0);
+        
+        if (!cam.isOpened())
+        {
+            cout << "Failed opening video file." << endl << "usage: ./annotate [-v video] [-m muct_dir] [-d output_dir]" << endl;
+            return 0;
+        }
+        
+        // get images to annotate
+        annotation.set_capture_instructions();
+        while (cam.get(CV_CAP_PROP_POS_AVI_RATIO) < 0.999999)
+        {
+            Mat im, img;
+            cam >> im;
+            annotation.image = im.clone();
+            annotation.draw_instructions();
+            imshow(annotation.wname, annotation.image);
+            int c = waitKey(10);
+            
+            if (c == 'q')
+                break;
+            else if (c == 's')
+            {
+                int idx = annotation.data.imnames.size();
+                char str[1024];
+                
+                if (idx < 10)
+                    sprintf(str, "%s00%d.png", odir.c_str(), idx);
+                else if (idx < 100)
+                    sprintf(str, "%s0%d.png", odir.c_str(), idx);
+                else
+                    sprintf(str, "%s%d.png", odir.c_str(), idx);
+                
+                imwrite(str, im);
+                annotation.data.imnames.push_back(str);
+                im = Scalar::all(255);
+                imshow(annotation.wname, im);
+                waitKey(10);
+            }
+        }
+        
+        if (annotation.data.imnames.size() == 0)
+            return 0;
+        annotation.data.points.resize(annotation.data.imnames.size());
+        
+        // annotate first image
+        setMouseCallback(annotation.wname, pp_MouseCallback, 0);
+        annotation.set_pick_points_instructions();
+        annotation.set_current_image(0);
+        annotation.draw_instructions();
+        annotation.idx = 0;
+        while (1) {
+            annotation.draw_points();
+            imshow(annotation.wname, annotation.image);
+            if (waitKey(0) == 'q')
+                break;
+        }
+        
+        if (annotation.data.points[0].size() == 0)
+            return 0;
+        annotation.replicate_annotations(0);
+    }
+    
+    save_ft(fname.c_str(), annotation.data);
+    
+    // annotate connective
+    setMouseCallback(annotation.wname, pc_MouseCallback, 0);
+    annotation.set_connectivity_instructions();
+    annotation.set_current_image(0);
+    annotation.draw_instructions();
+    annotation.idx = 0;
+    while (1) {
+        annotation.draw_connections();
+        imshow(annotation.wname, annotation.image);
+        if (waitKey(0) == 'q')
+            break;
+    }
+    
+    save_ft(fname.c_str(), annotation.data);
+    
+    // annotate symmetry
+    setMouseCallback(annotation.wname, ps_MouseCallback, 0);
+    annotation.initialise_symmetry(0);
+    annotation.set_symmetry_instructions();
+    annotation.set_current_image(0);
+    annotation.draw_instructions();
+    annotation.idx = 0;
+    annotation.pidx = -1;
+    while (1) {
+        annotation.draw_symmetry();
+        imshow(annotation.wname, annotation.image);
+        if (waitKey(0) == 'q')
+            break;
+    }
+    
+    save_ft(fname.c_str(), annotation.data);
+    
+    // annotate the rest
+    if (type != 2)
+    {
+        setMouseCallback(annotation.wname, mv_MouseCallback, 0);
+        annotation.set_move_points_instructions();
+        annotation.idx = 1;
+        annotation.pidx = -1;
+        
+        while (1) {
+            annotation.set_current_image(annotation.idx);
+            annotation.draw_instructions();
+            annotation.set_clean_image();
+            annotation.draw_connections();
+            imshow(annotation.wname, annotation.image);
+            
+            int c = waitKey(0);
+            if (c == 'q')
+                break;
+            else if (c == 'p')
+            {
+                ++annotation.idx;
+                annotation.pidx = -1;
+            }
+            else if (c == 'o')
+            {
+                --annotation.idx;
+                annotation.pidx = -1;
+            }
+            
+            if (annotation.idx < 0)
+                annotation.idx = 0;
+            if (annotation.idx >= int(annotation.data.imnames.size()))
+                annotation.idx = annotation.data.imnames.size() - 1;
+        }
+    }
+    save_ft(fname.c_str(), annotation.data);
+    destroyWindow("Annotate");
+    return 0;
+}
