@@ -45,7 +45,7 @@ protected:
 class patch_models {
 public:
     Mat reference; // reference shape
-    vector<patch_model> patches;
+    vector<patch_model> patches; // patch model
     
     inline int n_patches() { return patches.size(); }
     

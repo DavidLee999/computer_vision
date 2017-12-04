@@ -81,19 +81,18 @@ void patch_model::train(const vector<cv::Mat> &images, const Size psize, const f
         throw std::exception();
     }
     
-    int dx = wsize.width - psize.width, dy = wsize.height - psize.height;
-    Mat F(dy, dx, CV_32F);
+    int dx = wsize.width - psize.width, dy = wsize.height - psize.height; // center of response map
+    Mat F(dy, dx, CV_32F); // ideal response map
     for (int y = 0; y < dy; ++y)
     {
         float vy = (dy - 1) / 2 - y;
         for (int x = 0; x < dx; ++x)
         {
             float vx = (dx - 1) / 2 - x;
-            F.fl(y, x) = exp(-0.5 * (vx * vx + vy * vy) / var);
+            F.fl(y, x) = exp(-0.5 * (vx * vx + vy * vy) / var); // Gaussian
         }
     }
-    
-    normalize(F, F, 0, 1, NORM_MINMAX);
+    normalize(F, F, 0, 1, NORM_MINMAX); // normalize to [0, 1] range
     
     // allocate memory
     Mat I(wsize.height, wsize.width, CV_32F);
@@ -102,26 +101,26 @@ void patch_model::train(const vector<cv::Mat> &images, const Size psize, const f
     P = Mat::zeros(psize.height, psize.width, CV_32F);
     
     // optimise using stochastic gradient descent
-    RNG rn(getTickCount());
+    RNG rn(getTickCount()); // random number generator
     double mu = mu_init, step = pow(1e-8 / mu_init, 1.0 / nsmaples);
     for (int sample = 0; sample < nsmaples; ++sample)
     {
-        int i = rn.uniform(0, N);
+        int i = rn.uniform(0, N); // randomly sample image index
         I = this->convert_image(images[i]);
         dP = 0.0;
-        for (int y = 0; y < dy; ++y)
+        for (int y = 0; y < dy; ++y) // compute stochastic gradient
         {
             for (int x = 0; x < dx; ++x)
             {
                 Mat Wi = I(Rect(x, y, psize.width, psize.height)).clone();
-                Wi -= Wi.dot(O);
+                Wi -= Wi.dot(O); // normalize
                 normalize(Wi, Wi);
                 dP += (F.fl(y, x) - P.dot(Wi)) * Wi;
             }
         }
         
-        P += mu * (dP - lambda * P);
-        mu *= step;
+        P += mu * (dP - lambda * P); // take a small step
+        mu *= step; // reduce step size
         
         if (visi)
         {
@@ -164,7 +163,7 @@ void patch_models::train(ft_data& data, const vector<Point2f>& ref, const Size p
     // set reference shape
     int n = ref.size();
     reference = Mat(ref).reshape(1, 2 * n);
-    Size wsize = psize + ssize;
+    Size wsize = psize + ssize; // total size of the normalized training image
     
     // train each patch model in turn
     patches.resize(n);
@@ -341,4 +340,5 @@ void patch_models::read(const cv::FileNode &node)
         sprintf(str, "patch %d", i);
         ss = str;
         node[ss] >> patches[i];
+    }
 }
