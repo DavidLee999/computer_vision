@@ -11,6 +11,7 @@
 
 #include "shape_model.hpp"
 #include "ft_data.hpp"
+#include "patch_model.cpp"
 
 template <typename T>
 T load_ft(const char* fname) {
