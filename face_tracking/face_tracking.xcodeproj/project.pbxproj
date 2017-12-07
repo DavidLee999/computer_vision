@@ -10,6 +10,7 @@
 		8912F5891FD1852E00B940E9 /* patch_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8912F5871FD1852E00B940E9 /* patch_model.cpp */; };
 		896E80EB1FD6780C00CE9C4B /* train_patch_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896E80EA1FD6780C00CE9C4B /* train_patch_model.cpp */; };
 		896E80ED1FD686D300CE9C4B /* visualize_patch_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896E80EC1FD686D300CE9C4B /* visualize_patch_model.cpp */; };
+		89A8CA471FD93CCD00B505B4 /* face_detector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89A8CA451FD93CCD00B505B4 /* face_detector.cpp */; };
 		89BA02201FC06904009E3E6B /* shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89BA021E1FC06904009E3E6B /* shape_model.cpp */; };
 		89CEEB5A1FC9876900FD75DB /* visualize_shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CEEB591FC9876900FD75DB /* visualize_shape_model.cpp */; };
 		89CEEB5C1FC99C7900FD75DB /* annotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CEEB5B1FC99C7900FD75DB /* annotate.cpp */; };
@@ -35,6 +36,8 @@
 		895D4C491FC0674C00E1C5A6 /* face_tracking */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = face_tracking; sourceTree = BUILT_PRODUCTS_DIR; };
 		896E80EA1FD6780C00CE9C4B /* train_patch_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = train_patch_model.cpp; sourceTree = "<group>"; };
 		896E80EC1FD686D300CE9C4B /* visualize_patch_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = visualize_patch_model.cpp; sourceTree = "<group>"; };
+		89A8CA451FD93CCD00B505B4 /* face_detector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = face_detector.cpp; sourceTree = "<group>"; };
+		89A8CA461FD93CCD00B505B4 /* face_detector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = face_detector.hpp; sourceTree = "<group>"; };
 		89BA021E1FC06904009E3E6B /* shape_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shape_model.cpp; sourceTree = "<group>"; };
 		89BA021F1FC06904009E3E6B /* shape_model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shape_model.hpp; sourceTree = "<group>"; };
 		89CEEB591FC9876900FD75DB /* visualize_shape_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = visualize_shape_model.cpp; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				8912F5881FD1852E00B940E9 /* patch_model.hpp */,
 				896E80EA1FD6780C00CE9C4B /* train_patch_model.cpp */,
 				896E80EC1FD686D300CE9C4B /* visualize_patch_model.cpp */,
+				89A8CA451FD93CCD00B505B4 /* face_detector.cpp */,
+				89A8CA461FD93CCD00B505B4 /* face_detector.hpp */,
 			);
 			path = face_tracking;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E87F631FC83E7E005315E8 /* ft_data.cpp in Sources */,
+				89A8CA471FD93CCD00B505B4 /* face_detector.cpp in Sources */,
 				896E80EB1FD6780C00CE9C4B /* train_patch_model.cpp in Sources */,
 				89E87F5F1FC834F3005315E8 /* train_shape_model.cpp in Sources */,
 				8912F5891FD1852E00B940E9 /* patch_model.cpp in Sources */,
