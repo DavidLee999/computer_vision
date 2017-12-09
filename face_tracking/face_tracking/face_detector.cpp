@@ -73,5 +73,6 @@ void face_detector::train(ft_data &data, const string fname, const cv::Mat &ref,
         
         detector.detectMultiScale(eqIm, faces, scaleFactor, minNeighbours, 0 | CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_SCALE_IMAGE, minSize);
         
+        t;
     }
 }
