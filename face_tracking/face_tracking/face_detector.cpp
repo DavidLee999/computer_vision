@@ -71,6 +71,5 @@ void face_detector::train(ft_data &data, const string fname, const cv::Mat &ref,
         Mat eqIm;
         equalizeHist(im, eqIm);
         
-        
     }
 }
