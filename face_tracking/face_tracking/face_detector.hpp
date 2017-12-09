@@ -1,11 +1,3 @@
-//
-//  face_detector.hpp
-//  face_tracking
-//
-//  Created by 李芃桦 on 2017/12/7.
-//  Copyright © 2017年 李芃桦. All rights reserved.
-//
-
 #ifndef face_detector_hpp
 #define face_detector_hpp
 
