@@ -16,6 +16,7 @@
 		89CEEB5C1FC99C7900FD75DB /* annotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CEEB5B1FC99C7900FD75DB /* annotate.cpp */; };
 		89E87F5F1FC834F3005315E8 /* train_shape_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89E87F5E1FC834F3005315E8 /* train_shape_model.cpp */; };
 		89E87F631FC83E7E005315E8 /* ft_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89E87F611FC83E7E005315E8 /* ft_data.cpp */; };
+		89F774B21FDD7E0200BC3422 /* face_tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89F774B01FDD7E0200BC3422 /* face_tracker.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,9 @@
 		89E87F601FC835B3005315E8 /* ft.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ft.hpp; sourceTree = "<group>"; };
 		89E87F611FC83E7E005315E8 /* ft_data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ft_data.cpp; sourceTree = "<group>"; };
 		89E87F621FC83E7E005315E8 /* ft_data.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ft_data.hpp; sourceTree = "<group>"; };
+		89F774B01FDD7E0200BC3422 /* face_tracker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = face_tracker.cpp; sourceTree = "<group>"; };
+		89F774B11FDD7E0200BC3422 /* face_tracker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = face_tracker.hpp; sourceTree = "<group>"; };
+		89F774B31FDD7E9F00BC3422 /* fps_timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fps_timer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,9 @@
 				896E80EC1FD686D300CE9C4B /* visualize_patch_model.cpp */,
 				89A8CA451FD93CCD00B505B4 /* face_detector.cpp */,
 				89A8CA461FD93CCD00B505B4 /* face_detector.hpp */,
+				89F774B01FDD7E0200BC3422 /* face_tracker.cpp */,
+				89F774B11FDD7E0200BC3422 /* face_tracker.hpp */,
+				89F774B31FDD7E9F00BC3422 /* fps_timer.h */,
 			);
 			path = face_tracking;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 				896E80EB1FD6780C00CE9C4B /* train_patch_model.cpp in Sources */,
 				89E87F5F1FC834F3005315E8 /* train_shape_model.cpp in Sources */,
 				8912F5891FD1852E00B940E9 /* patch_model.cpp in Sources */,
+				89F774B21FDD7E0200BC3422 /* face_tracker.cpp in Sources */,
 				89CEEB5A1FC9876900FD75DB /* visualize_shape_model.cpp in Sources */,
 				896E80ED1FD686D300CE9C4B /* visualize_patch_model.cpp in Sources */,
 				89CEEB5C1FC99C7900FD75DB /* annotate.cpp in Sources */,

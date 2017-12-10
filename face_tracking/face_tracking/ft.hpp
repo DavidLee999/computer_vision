@@ -13,6 +13,7 @@
 #include "ft_data.hpp"
 #include "patch_model.cpp"
 #include "face_detector.hpp"
+#include "face_tracker.hpp"
 
 template <typename T>
 T load_ft(const char* fname) {
